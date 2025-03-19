@@ -187,11 +187,10 @@ begin
 		if(reset = '1') then
 			currentCombo <= "00000001"; -- dont want this to be 0 
 		-- at rising edge
-		else if(clk'event and clk='1') then	 
+		elsif(clk'event and clk='1') then	 
 			-- shift current combination to the right and make the feedback signal the first bit			
 			currentCombo <= feedback & currentCombo(7 downto 1);	 
 		end if;
-		end if;	
 	end process;
 
 	-- When pushbutton is pressed
@@ -270,8 +269,8 @@ begin
 	end case; 
 	
 
--- Combines all guesses into 1 vector
-sequence_guess <= color_4 & color_3 & color_2 & color_1;
+	-- Combines all guesses into 1 vector
+	sequence_guess <= color_4 & color_3 & color_2 & color_1;
 end process;
 end Behavioral;
 
@@ -288,8 +287,6 @@ entity compareSequences is
 	       sequence_guess, sequence_generated   : in std_logic_vector(7 downto 0);
 		    points_earned                        : out std_logic);
 end compareSequences;  
-
-
 
 
 architecture Behavioral of compareSequences is	
