@@ -202,7 +202,7 @@ begin
 		-- else random_num(output) gets currentCombo
 		else rand_num <= currentCombo;
 		end if;
-end process;
+	end process;
 end Behavioral;
 
 
